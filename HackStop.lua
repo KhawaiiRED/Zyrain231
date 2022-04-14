@@ -1,7 +1,7 @@
 local args = {
     [1] = {
         [1] = "Hacker Egg",
-        [2] = False
+        [2] = false
     }
 }
 
