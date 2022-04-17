@@ -59,7 +59,7 @@
 		end
 	end)
 	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    Section:NewToggle("👾Hacker Egg👾[Single Hatch]", "Chance to get 👾Huge Hack Cat Here👾", function(state)
+    	Section:NewToggle("👾Hacker Egg👾[Single Hatch]", "Chance to get 👾Huge Hack Cat Here👾", function(state)
 		if state then
 			_G.autotap1 = True;
 
