@@ -73,14 +73,6 @@ end)
 local Tab = Window:NewTab("⚙MISC⚙")
 local Section = Tab:NewSection("⚙MISC⚙")
 
-Section:NewButton("Claim Rank Reward", "Click To Claim Your Rank Reward", function()
-
-end)
-
-Section:NewButton1("Claim VIP Rewards", "Click To Claim Your VIP reaward [Works For VIP Only]", function()
-    
-end)
-
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
