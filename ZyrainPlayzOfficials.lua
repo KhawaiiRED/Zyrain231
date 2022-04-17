@@ -14,53 +14,35 @@ Section:NewLabel("✔ZyrainPlayz#1825✔")
 local Tab = Window:NewTab("🐱Pets🐶")
 local Section = Tab:NewSection("🐱Pets🐶")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Section:NewToggle("🌈Rainbow Egg🌈", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
+Section:NewToggle("🌈Rainbow Egg🌈[Single Hatch]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
     if state then
-        _G.autotap = True;
+        _G.autotap2 = True;
 
-while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+while _G.autotap2 == True do
+    local A_1 = {[1] = "Rainbow Pixel Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)
 wait()
 
 
 end
     else
-        _G.autotap = false;
+        _G.autotap2 = false;
+    local A_1 = {[1] = "Rainbow Pixel Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)
 
-while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-wait()
-Section:NewToggle("🌈Rainbow Egg🌈", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
-    if state then
-        _G.autotap = True;
+while _G.autotap2 == True do
 
-while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-wait()
-
-
-end
-    else
-        _G.autotap = false;
-
-while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
 wait()
 
 
 end
     end
 end)
-
-end
-    end
-end)
-Section:NewToggle("🌈Rainbow Egg🌈[3x Egg]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Section:NewToggle("🌈Rainbow Egg🌈[3x Hatch]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
     if state then
         _G.autotap = True;
 
 while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+    local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
 wait()
 
 
@@ -69,29 +51,9 @@ end
         _G.autotap = false;
 
 while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-wait()
-Section:NewToggle("🌈Rainbow Egg🌈[Single Egg]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
-    if state then
-        _G.autotap = True;
-
-while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = false}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+    local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
 wait()
 
-
-end
-    else
-        _G.autotap = false;
-
-while _G.autotap == True do
-local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = false}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-wait()
-
-
-end
-    end
-end)
 
 end
     end
@@ -102,7 +64,7 @@ Section:NewToggle("👾Hacker Egg👾", "Chance to get 👾Huge Hack Cat Here�
         _G.autotap1 = True;
 
 while _G.autotap1 == True do
-local args = {[1] = {[1] = "Hacker Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+    local A_1 = {[1] = "Hacker Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)))
 wait()
 
 
@@ -111,7 +73,30 @@ end
         _G.autotap1 = false;
 
 while _G.autotap1 == True do
-local args = {[1] = {[1] = "Hacker Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+    local A_1 = {[1] = "Hacker Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)
+wait()
+
+
+end
+    end
+end)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Section:NewToggle("👾Hacker Egg👾", "Chance to get 👾Huge Hack Cat Here👾", function(state)
+    if state then
+        _G.autotap1 = True;
+
+while _G.autotap1 == True do
+    local args = {[1] = {[1] = "Hacker Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+wait()
+
+
+end
+    else
+        _G.autotap1 = false;
+
+while _G.autotap1 == True do
+    local args = {[1] = {[1] = "Hacker Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
 wait()
 
 
@@ -144,17 +129,12 @@ Section:NewToggle("Equip Best/Unuquip", "ToggleInfo", function(state)
         local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["unequip all pets"]Event:InvokeServer(A_1)
     end
 end)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Section:NewButton("claim Rank Reward", "claim your rank reward here", function()
     local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem rank rewards"]Event:InvokeServer(A_1)
 
 end)
-
-Section:NewButton("claim VIP Reward", "claim your VIP reward here", function()
-
-end)
-
-
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
