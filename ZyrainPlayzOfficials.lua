@@ -81,11 +81,6 @@ Section:NewButton("claim Rank Reward", "claim your rank reward here", function()
 
 end)
 
-Section:NewButton("claim VIP Reward", "claim your VIP reward here", function()
-    local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem vip rewards"]Event:InvokeServer(A_1)
-end)
-
-
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
