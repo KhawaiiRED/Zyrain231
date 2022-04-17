@@ -81,6 +81,11 @@ Section:NewButton("claim Rank Reward", "claim your rank reward here", function()
 
 end)
 
+Section:NewButton("claim VIP Reward", "claim your VIP reward here", function()
+
+end)
+
+
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
