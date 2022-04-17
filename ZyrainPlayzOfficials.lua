@@ -73,6 +73,17 @@ end)
 local Tab = Window:NewTab("⚙MISC⚙")
 local Section = Tab:NewSection("⚙MISC⚙")
 
+
+
+Section:NewButton("Claim Rank Reward", "Click To Claim Your Rank Reward", function()
+    local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem rank rewards"]Event:InvokeServer(A_1) 
+end)
+
+Section:NewButton("Claim VIP Rewards", "Click To Claim Your VIP reaward [Works For VIP Only]", function()
+    local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem vip rewards"]Event:InvokeServer(A_1))
+end)
+
+
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
