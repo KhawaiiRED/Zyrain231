@@ -30,12 +30,73 @@ end
 while _G.autotap == True do
 local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
 wait()
+Section:NewToggle("🌈Rainbow Egg🌈", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
+    if state then
+        _G.autotap = True;
+
+while _G.autotap == True do
+local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+wait()
+
+
+end
+    else
+        _G.autotap = false;
+
+while _G.autotap == True do
+local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+wait()
 
 
 end
     end
 end)
 
+end
+    end
+end)
+Section:NewToggle("🌈Rainbow Egg🌈[3x Egg]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
+    if state then
+        _G.autotap = True;
+
+while _G.autotap == True do
+local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+wait()
+
+
+end
+    else
+        _G.autotap = false;
+
+while _G.autotap == True do
+local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+wait()
+Section:NewToggle("🌈Rainbow Egg🌈[Single Egg]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
+    if state then
+        _G.autotap = True;
+
+while _G.autotap == True do
+local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = false}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+wait()
+
+
+end
+    else
+        _G.autotap = false;
+
+while _G.autotap == True do
+local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = false}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
+wait()
+
+
+end
+    end
+end)
+
+end
+    end
+end)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Section:NewToggle("👾Hacker Egg👾", "Chance to get 👾Huge Hack Cat Here👾", function(state)
     if state then
         _G.autotap1 = True;
