@@ -76,6 +76,13 @@ end)
 local Tab = Window:NewTab("⚙MISC⚙")
 local Section = Tab:NewSection("⚙MISC⚙")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Section:NewToggle("Equip Best/Unuquip", "ToggleInfo", function(state)
+    if state then
+        local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["equip best pets"]Event:InvokeServer(A_1)
+    else
+        local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["unequip all pets"]Event:InvokeServer(A_1)
+    end
+end)
 Section:NewButton("claim Rank Reward", "claim your rank reward here", function()
     local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem rank rewards"]Event:InvokeServer(A_1)
 
