@@ -139,6 +139,12 @@
 		local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem vip rewards"]Event:InvokeServer(A_1)
 
 	end)
+    	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    Section:NewButton("Gamepasses", "unlock your gamepasses here", function()
+	local gmppath = require(game:GetService("ReplicatedStorage").Framework.Modules.Client["5 | Gamepasses"])
+    gmppath.Owns = function() return true end
+	end)
 	Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
 		Library:ToggleUI()
 	end)
