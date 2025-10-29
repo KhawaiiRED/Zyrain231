@@ -1,151 +1,182 @@
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--// LocalScript inside StarterGui
 
-	local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-	local Window = Library.CreateLib("⚜Zyrain Official⚜", "Midnight")
-	local Tab = Window:NewTab("☄Main☄")
-	local Section = Tab:NewSection("☄Main☄")
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Create ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "AutoSystemGUI"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
-	Section:NewLabel("⚜Script By Zyrain Official⚜")
-	Section:NewLabel("😻Discord ID😻")
-	Section:NewLabel("✔ZyrainPlayz#1825✔")
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Main Frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 360, 0, 340)
+mainFrame.Position = UDim2.new(0, 50, 0, 100)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+mainFrame.BorderSizePixel = 0
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.Parent = screenGui
 
-	local Tab = Window:NewTab("🐱Pets🐶")
-	local Section = Tab:NewSection("🐱Pets🐶")
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Section:NewToggle("🌈Rainbow Egg🌈[Single Hatch]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
-		if state then
-			_G.autotap2 = True;
+local corner = Instance.new("UICorner", mainFrame)
+corner.CornerRadius = UDim.new(0, 10)
 
-	while _G.autotap2 == True do
-		local A_1 = {[1] = "Rainbow Pixel Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)
-	wait()
+-- Title Bar
+local titleBar = Instance.new("Frame")
+titleBar.Size = UDim2.new(1, 0, 0, 35)
+titleBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+titleBar.BorderSizePixel = 0
+titleBar.Parent = mainFrame
 
+local titleCorner = Instance.new("UICorner", titleBar)
+titleCorner.CornerRadius = UDim.new(0, 10)
 
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, -40, 1, 0)
+title.Position = UDim2.new(0, 10, 0, 0)
+title.BackgroundTransparency = 1
+title.Text = "Zyne's Auto Roll | Aura Merchant"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.Font = Enum.Font.GothamBold
+title.TextSize = 16
+title.TextXAlignment = Enum.TextXAlignment.Left
+title.Parent = titleBar
+
+local minimizeBtn = Instance.new("TextButton")
+minimizeBtn.Size = UDim2.new(0, 35, 1, 0)
+minimizeBtn.Position = UDim2.new(1, -35, 0, 0)
+minimizeBtn.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
+minimizeBtn.Text = "-"
+minimizeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeBtn.Font = Enum.Font.GothamBold
+minimizeBtn.TextSize = 20
+minimizeBtn.Parent = titleBar
+
+-- Content Frame
+local content = Instance.new("Frame")
+content.Size = UDim2.new(1, -20, 1, -50)
+content.Position = UDim2.new(0, 10, 0, 45)
+content.BackgroundTransparency = 1
+content.Parent = mainFrame
+
+-- Left Panel (Auto Roll)
+local leftPanel = Instance.new("Frame")
+leftPanel.Size = UDim2.new(0, 150, 1, 0)
+leftPanel.BackgroundTransparency = 1
+leftPanel.Parent = content
+
+-- Right Panel (Auto Buy)
+local rightPanel = Instance.new("Frame")
+rightPanel.Size = UDim2.new(0, 160, 1, 0)
+rightPanel.Position = UDim2.new(0, 180, 0, 0)
+rightPanel.BackgroundTransparency = 1
+rightPanel.Parent = content
+
+local leftList = Instance.new("UIListLayout", leftPanel)
+leftList.Padding = UDim.new(0, 10)
+
+local rightList = Instance.new("UIListLayout", rightPanel)
+rightList.Padding = UDim.new(0, 10)
+
+-- Helper: Rounded Buttons
+local function roundify(button)
+	local c = Instance.new("UICorner")
+	c.CornerRadius = UDim.new(0, 8)
+	c.Parent = button
+end
+
+-------------------------------------
+-- AUTO ROLL SECTION (1 Button)
+-------------------------------------
+local autoRoll = false
+
+local btnRoll = Instance.new("TextButton")
+btnRoll.Size = UDim2.new(1, 0, 0, 45)
+btnRoll.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+btnRoll.TextColor3 = Color3.fromRGB(255, 255, 255)
+btnRoll.Font = Enum.Font.GothamBold
+btnRoll.TextSize = 18
+btnRoll.Text = "Auto Roll (OFF)"
+roundify(btnRoll)
+btnRoll.Parent = leftPanel
+
+-- Auto roll loop
+task.spawn(function()
+	while task.wait(0.5) do
+		if autoRoll then
+			game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Eggs_Roll"):InvokeServer()
+		end
 	end
-		else
-			_G.autotap2 = false;
-		local A_1 = {[1] = "Rainbow Pixel Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)
+end)
 
-	while _G.autotap2 == True do
-
-	wait()
-
-
+-- Toggle button
+btnRoll.MouseButton1Click:Connect(function()
+	autoRoll = not autoRoll
+	if autoRoll then
+		btnRoll.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+		btnRoll.Text = "Auto Roll (ON)"
+	else
+		btnRoll.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+		btnRoll.Text = "Auto Roll (OFF)"
 	end
+end)
+
+-------------------------------------
+-- AUTO BUY SECTION (6 Buttons)
+-------------------------------------
+local toggles = {}
+
+local function createBuyButton(index)
+	local button = Instance.new("TextButton")
+	button.Size = UDim2.new(1, 0, 0, 40)
+	button.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+	button.TextColor3 = Color3.fromRGB(255, 255, 255)
+	button.Font = Enum.Font.GothamBold
+	button.TextSize = 18
+	button.Text = "Buy " .. index .. " (OFF)"
+	roundify(button)
+	button.Parent = rightPanel
+
+	toggles[index] = false
+
+	-- Auto-buy loop
+	task.spawn(function()
+		while task.wait(0.5) do
+			if toggles[index] then
+				local args = {"AuraEggMerchant", index}
+				game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("CustomMerchants_Purchase"):InvokeServer(unpack(args))
+			end
 		end
 	end)
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Section:NewToggle("🌈Rainbow Egg🌈[3x Hatch]", "Chance to get 🌈Huge Pixel Cat Here🌈", function(state)
-		if state then
-			_G.autotap = True;
 
-	while _G.autotap == True do
-	local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-	wait()
-
-
-	end
+	button.MouseButton1Click:Connect(function()
+		toggles[index] = not toggles[index]
+		if toggles[index] then
+			button.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+			button.Text = "Buy " .. index .. " (ON)"
 		else
-			_G.autotap = false;
-
-	while _G.autotap == True do
-	local args = {[1] = {[1] = "Rainbow Pixel Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-	wait()
-
-
-	end
+			button.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+			button.Text = "Buy " .. index .. " (OFF)"
 		end
 	end)
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-    	Section:NewToggle("👾Hacker Egg👾[Single Hatch]", "Chance to get 👾Huge Hack Cat Here👾", function(state)
-		if state then
-			_G.autotap1 = True;
+end
 
-	while _G.autotap1 == True do
-	local A_1 = {[1] = "Hacker Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)
-	wait()
+-- Create 6 auto-buy buttons
+for i = 1, 6 do
+	createBuyButton(i)
+end
 
-
+-------------------------------------
+-- MINIMIZE BEHAVIOR
+-------------------------------------
+local isMinimized = false
+minimizeBtn.MouseButton1Click:Connect(function()
+	isMinimized = not isMinimized
+	if isMinimized then
+		content.Visible = false
+		mainFrame.Size = UDim2.new(0, 360, 0, 35)
+		minimizeBtn.Text = "+"
+	else
+		content.Visible = true
+		mainFrame.Size = UDim2.new(0, 360, 0, 340)
+		minimizeBtn.Text = "-"
 	end
-		else
-			_G.autotap1 = false;
-
-	while _G.autotap1 == True do
-	local A_1 = {[1] = "Hacker Egg", [2] = false}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["buy egg"]Event:InvokeServer(A_1)
-	wait()
-
-
-	end
-		end
-	end)
-
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Section:NewToggle("👾Hacker Egg👾[3x Hatch]", "Chance to get 👾Huge Hack Cat Here👾", function(state)
-		if state then
-			_G.autotap1 = True;
-
-	while _G.autotap1 == True do
-	local args = {[1] = {[1] = "Hacker Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-	wait()
-
-
-	end
-		else
-			_G.autotap1 = false;
-
-	while _G.autotap1 == True do
-	local args = {[1] = {[1] = "Hacker Egg",[2] = true}}workspace.__THINGS.__REMOTES:FindFirstChild("buy egg"):InvokeServer(unpack(args))
-	wait()
-
-
-	end
-		end
-	end)
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	local Tab = Window:NewTab("⛏Farming⛏")
-	local Section = Tab:NewSection("⛏Farming⛏")
-
-
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	local Tab = Window:NewTab("🧑Local Player🧑")
-	local Section = Tab:NewSection("🧑Local Player🧑")
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Section:NewSlider("Player Speed", "SliderInfo", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-	end)
-	Section:NewSlider("Jumppower", "Changes the jumppower", 250, 50, function(v)
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
-	end)
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	local Tab = Window:NewTab("⚙MISC⚙")
-	local Section = Tab:NewSection("⚙MISC⚙")
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Section:NewToggle("Equip Best/Unuquip", "ToggleInfo", function(state)
-		if state then
-			local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["equip best pets"]Event:InvokeServer(A_1)
-		else
-			local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["unequip all pets"]Event:InvokeServer(A_1)
-		end
-	end)
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Section:NewButton("claim Rank Reward", "claim your rank reward here", function()
-		local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem rank rewards"]Event:InvokeServer(A_1)
-
-	end)
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Section:NewButton("claim VIP Reward", "claim your VIP reward here", function()
-		local A_1 = {}local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["redeem vip rewards"]Event:InvokeServer(A_1)
-
-	end)
-    	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    Section:NewButton("Gamepasses", "unlock your gamepasses here", function()
-	local gmppath = require(game:GetService("ReplicatedStorage").Framework.Modules.Client["5 | Gamepasses"])
-    gmppath.Owns = function() return true end
-	end)
-	Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
-		Library:ToggleUI()
-	end)
-	------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+end)
